@@ -7,10 +7,10 @@ from regulations.views import navigation, utils
 from regulations.generator.toc import fetch_toc
 from regulations.generator.section_url import SectionUrl
 from regulations.views import error_handling
-from regulations.views.mixins import SidebarContextMixin
+from regulations.views.mixins import SidebarContextMixin, CitationContextMixin
 
 
-class SectionView(SidebarContextMixin, TemplateView):
+class ReaderView(SidebarContextMixin, CitationContextMixin, TemplateView):
 
     template_name = 'regulations/section.html'
 
