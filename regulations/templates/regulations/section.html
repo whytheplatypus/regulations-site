@@ -24,6 +24,18 @@
 <div class="box">
 
     <aside class="left-sidebar">
+        <div>
+          <h2>Jump to Regulations Section</h2>
+          <form method="GET" action="/goto/">
+            <input name="part" type="hidden" required value={{ part }}>
+            <input name="version" type="hidden" required value={{ version }}>
+            <div>
+              <label>{{ part }}.</label>
+              <input name="section" type="text" pattern="[0-9]+" required>
+            </div>
+            <input type="submit" value="Go">
+          </form>
+        <div>
         {% with nav_class='toc-nav__base toc-nav__cfr-viewer' toc_items=TOC top_toc=True %}
             {% include "regulations/toc.html" %}
         {% endwith %}

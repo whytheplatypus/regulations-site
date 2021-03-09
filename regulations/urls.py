@@ -18,6 +18,7 @@ from regulations.views.partial_sxs import ParagraphSXSView
 from regulations.views.preamble import (
     CFRChangesView, PreambleView, ChromePreambleSearchView
 )
+from regulations.views.goto import GoToRedirectView
 from regulations.views.redirect import (
     diff_redirect,
     redirect_by_current_date,
@@ -102,7 +103,8 @@ urlpatterns = [
     path('<numeric:part>/<version:version>/', PartReaderView.as_view(), name='part_reader_view'),
     path('<numeric:part>/<numeric:section>/<version:version>/', SectionReaderView.as_view(), name='section_reader_view'),
     path('<numeric:part>/<subpart:subpart>/<version:version>/', SubpartReaderView.as_view(), name="subpart_reader_view"),
-
+    
+    path('goto/', GoToRedirectView.as_view(), name='goto'),
     # Interpretation of a section/paragraph or appendix
     # Example: http://.../201-4-Interp/2013-10704
     url(rf'^(?P<label_id>{match_interp})/(?P<version>{match_version})$',
