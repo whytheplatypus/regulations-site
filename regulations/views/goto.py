@@ -1,6 +1,7 @@
 from django.urls import reverse
 from django.views.generic.base import RedirectView
 
+
 class GoToRedirectView(RedirectView):
 
     permanent = False
